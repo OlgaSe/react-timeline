@@ -4,19 +4,22 @@ import TimelineEvent from './TimelineEvent';
 
 const Timeline = (props) => {
   console.log(props);
-  const TimelineComponents = props.events.map((post)=> {
+  const timelineComponents = props.events.map((event)=> {
     return (
       <TimelineEvent
-      person={post.person} 
-      status={post.status}
-      timeStamp={post.timeStamp}
-      key={post.person}/>
-    )
-  })
+      person={event.person} 
+      status={event.status}
+      timeStamp={event.timeStamp}
+      key={event.person}/>
+    );
+  });
+
   return(
-    <ul className="Timeline">
-    {TimelineComponents}
-  </ul>
+    <div className="Timeline">
+      <div className='timeline'>
+        {timelineComponents}
+      </div>
+    </div>
   );
 }
 
